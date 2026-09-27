@@ -15,3 +15,5 @@ FROM brahmadev/acme-lego-cron@sha256:ac21688d68e204329dd33efad1ab5efea5ae0c1fe3d
 RUN apk add --no-cache 'c-ares=1.34.8-r0' 'curl=8.22.0-r0' 'libcurl=8.22.0-r0' \
  'jq=1.8.2-r0' 'libcrypto3=3.5.8-r0' 'libssl3=3.5.8-r0'
 COPY --from=builder --chmod=0755 /out/lego /lego
+
+LABEL org.opencontainers.image.source="https://github.com/yusoofsh/acme-lego-cron"
