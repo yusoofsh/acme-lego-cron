@@ -50,6 +50,6 @@ jobs:
         run: |
           set -eu
           docker pull "$IMAGE"
-          docker run --rm --network none --entrypoint /lego "$IMAGE" --version | grep -F 'lego version 5.2.2'
+          docker run --rm --network none --entrypoint /lego "$IMAGE" --version | grep -F 'lego version v5.6.1+dev-detach'
           docker image inspect "$IMAGE" --format '{{json .Config.Entrypoint}}' | grep -F './cron.sh'
           printf 'Verified candidate: `%s`\n' "$IMAGE" >> "$GITHUB_STEP_SUMMARY"
