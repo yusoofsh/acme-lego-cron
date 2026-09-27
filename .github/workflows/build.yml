@@ -37,7 +37,9 @@ jobs:
           context: .
           platforms: linux/amd64
           push: true
-          tags: ghcr.io/yusoofsh/acme-lego-cron:security-sha-${{ github.sha }}
+          tags: |
+            ghcr.io/yusoofsh/acme-lego-cron:latest
+            ghcr.io/yusoofsh/acme-lego-cron:security-sha-${{ github.sha }}
           provenance: mode=max
           sbom: true
           cache-from: type=gha,scope=acme-lego-cron
