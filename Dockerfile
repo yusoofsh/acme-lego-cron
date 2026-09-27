@@ -4,7 +4,7 @@ WORKDIR /src
 # Pin the current upstream main commit (the upstream repository's preferred
 # development source), while retaining a checksum for reproducible builds.
 ADD https://github.com/go-acme/lego/archive/4a3b72065065b3aab879843da3bc49717a8beab9.tar.gz /tmp/lego-source.tar.gz
-RUN echo 'ffaf205d2c1f22c00ef77d30359a30334efc11ec59f1f8dff712a9305d440d21  /tmp/lego-source.tar.gz' | sha256sum -c - \
+RUN echo 'c67c7c37fd82a75135c5cb9ce801747efc841dd1f3f7b54e460976fc0d7f88b1  /tmp/lego-source.tar.gz' | sha256sum -c - \
  && tar -xzf /tmp/lego-source.tar.gz --strip-components=1 -C /src \
  && go mod edit -require=golang.org/x/crypto@v0.56.0 -require=golang.org/x/net@v0.58.0 -require=golang.org/x/text@v0.41.0 -require=google.golang.org/grpc@v1.83.2 -require=software.sslmate.com/src/go-pkcs12@v0.7.2 \
  && go mod download all \
